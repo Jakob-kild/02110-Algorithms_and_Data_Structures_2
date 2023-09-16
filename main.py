@@ -1,4 +1,9 @@
-arr = [1,2,3]
+n = int(input())
 
-# Print the results
-print(arr[:-1])
+grid = []
+for i in range(n):
+    row = input().strip()
+    row_chars = list(row)
+    grid.append(row_chars)
+
+DP = [[0] * n for _ in range(n)]

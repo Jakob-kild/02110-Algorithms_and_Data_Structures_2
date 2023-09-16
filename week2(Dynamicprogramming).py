@@ -13,6 +13,7 @@ def dfs(x, y):
         new_x = x + dx[k]
         new_y = y + dy[k]
 
+
         # Check if the new position is within bounds and not visited and walkable
         if 0 <= new_x < n and 0 <= new_y < n and not visited[new_x][new_y] and grid[new_x][new_y] != '#':
             if dfs(new_x, new_y):
@@ -46,8 +47,9 @@ for i in range(n):
             else:
                 DP[i][j] += DP[i-1][j]
 
+
 if DP[n-1][n-1] != 0:
-    print(DP[n-1][n-1])
+    print((DP[n-1][n-1] % ((2 ** 31)-1)))
 else:
     visited = [[False] * n for _ in range(n)]
     if dfs(0, 0):
