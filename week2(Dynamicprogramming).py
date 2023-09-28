@@ -1,4 +1,4 @@
-def dfs(x, y):
+def DFS(x, y):
     if x == n-1 and y == n-1:
         return True  # Found a path to 't'
 
@@ -16,7 +16,7 @@ def dfs(x, y):
 
         # Check if the new position is within bounds and not visited and walkable
         if 0 <= new_x < n and 0 <= new_y < n and not visited[new_x][new_y] and grid[new_x][new_y] != '#':
-            if dfs(new_x, new_y):
+            if DFS(new_x, new_y):
                 return True  # If a path to 't' is found, exit
 
     return False  # No path to 't' found from this cell
@@ -52,7 +52,7 @@ if DP[n-1][n-1] != 0:
     print((DP[n-1][n-1] % ((2 ** 31)-1)))
 else:
     visited = [[False] * n for _ in range(n)]
-    if dfs(0, 0):
+    if DFS(0, 0):
         print("THE GAME IS A LIE")
     else:
         print("INCONCEIVABLE")
